@@ -1,6 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MemoryCache;
+using Model;
+using Student.Services;
+using MemoryCache.Services;
+using Repository.Repositories;
 
 namespace ItemTests
 {
@@ -10,17 +14,17 @@ namespace ItemTests
         [TestMethod]
         public void StudentFromCacheTest()
         {
-            var studentId = "125";
-            var itemService = new ItemService();
-            var studentOne = new Student()
-            {
-                Name = "Bjaurimas",
-                StudentId = studentId
-            };
+            var studentId = "123";
+            //var itemService = new StudentService();
+            //var studentOne = new Student()
+            //{
+            //    Name = "Bjaurimas",
+            //    StudentId = studentId
+            //};
 
-            itemService.InsertStudentIntoDatabase(studentOne);
-            
-            itemService.GetContentByKey(studentId);
+            //itemService.InsertStudentIntoDatabase(studentOne);
+            var studentService = new StudentService(new CacheService(), new StudentRepository()); //Ioc
+            var name = studentService.GetStudentNameById(studentId);
             
             // Blogai, reiketu mockinti arba keisti savo programos veikima, 
             // Blogas testas jeigu testuoti ar objektas atsidure list ar db? // problema glai but connecttion string ar kur kitur...
@@ -30,7 +34,7 @@ namespace ItemTests
             // DI 
             // Esme zinot ar cache veikia. Gal koks ping - pong?
 
-            Assert.AreEqual(1, 2);
+            Assert.AreEqual(name, "Ignas");
             // Cache keisti i dictionary
             // IStore, ICache
             // Inversion of control
