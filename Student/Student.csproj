@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\StudentServices.cs" />
+    <Compile Include="Student.cs" />
     <Compile Include="UnityFactory.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -49,14 +50,6 @@
     <ProjectReference Include="..\MemoryCache\MemoryCache.csproj">
       <Project>{cb808b5d-b734-454e-b08a-ece45ac59c15}</Project>
       <Name>MemoryCache</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{e2c31375-62c2-416d-b8bf-ba5b32c48a20}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Repository\Repository.csproj">
-      <Project>{6c88514a-0555-4fd8-922f-1d10bebc8ea0}</Project>
-      <Name>Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

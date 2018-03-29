@@ -11,7 +11,7 @@ namespace Student
         public static void RegisterTypes()
         {
             var container = new UnityContainer();
-            container.RegisterType<ICacheService, CacheService>();
+            container.RegisterType<ICache, Cache>();
             container.RegisterType<IStudentRepository, StudentRepository>();
 
         }

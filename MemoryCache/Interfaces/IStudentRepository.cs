@@ -1,6 +1,6 @@
 ﻿
 
-namespace Repository.Interfaces
+namespace MemoryCache.Interfaces
 {
     public interface IStudentRepository
     {

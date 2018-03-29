@@ -1,14 +1,13 @@
-﻿using MemoryCache.Interfaces.Model;
-using System;
+﻿using System;
 
 namespace MemoryCache
 {
-    public class CachedItem : ICache
+    public class CachedItem<T> where T : ICacheable
     {
-        public string Content { get; }
+        public T Content { get; }
         public DateTime ExpiryTime { get; }
 
-        public CachedItem(string content)
+        public CachedItem(T content)
         {
             Content = content;
             ExpiryTime = DateTime.Now.AddMinutes(1);

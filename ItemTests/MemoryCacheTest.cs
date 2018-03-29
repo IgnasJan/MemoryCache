@@ -23,7 +23,7 @@ namespace ItemTests
             //};
 
             //itemService.InsertStudentIntoDatabase(studentOne);
-            var studentService = new StudentService(new CacheService(), new StudentRepository()); //Ioc
+            var studentService = new StudentService(new Cache(), new StudentRepository()); //Ioc
             var name = studentService.GetStudentNameById(studentId);
             
             // Blogai, reiketu mockinti arba keisti savo programos veikima, 

@@ -41,12 +41,5 @@
     <Compile Include="Interfaces\IStudentRepository.cs" />
     <Compile Include="Repositories\StudentRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{e2c31375-62c2-416d-b8bf-ba5b32c48a20}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
