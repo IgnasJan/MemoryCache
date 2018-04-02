@@ -13,6 +13,7 @@ namespace MemoryCache
             ICache cache = new Cache();
             StudentService studentService = new StudentService(studentRepository, cache);
             var myStudent = studentService.GetStudentNameById("123");
+            studentService.GetStudentNameById("123");
             Console.WriteLine(myStudent.Name);
             Console.ReadKey();
         }

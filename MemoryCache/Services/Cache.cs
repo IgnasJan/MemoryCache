@@ -10,7 +10,8 @@ namespace MemoryCache.Services
 
         public ICacheable CreateCache(string key, ICacheable content)
         {
-            var cacheItem = new CachedItem<ICacheable>(content); // TODO FIX factory?
+            var cacheItem = new CachedItem<ICacheable>(content);
+            RemoveOldCache(key);
             _cachedItems.Add(key, cacheItem);
             return cacheItem.Content;
         }
@@ -28,11 +29,21 @@ namespace MemoryCache.Services
 
         public ICacheable GetContent(string id, Func<string, ICacheable> p)
         {
-            if (_cachedItems.ContainsKey(id))
+            if (_cachedItems.ContainsKey(id) && _cachedItems[id].ExpiryTime > DateTime.Now)
             {
+#if DEBUG
+                Console.WriteLine("From cache"); //testing
+#endif
                 return _cachedItems[id].Content;
             }
-            return p(id);
+            var item = p(id);
+            CreateCache(id, item); //parse to Student?
+            return item;
+        }
+
+        public void RemoveOldCache(string key)
+        {
+            _cachedItems.Remove(key);
         }
 
         public void RemoveOldCache()

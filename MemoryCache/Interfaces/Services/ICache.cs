@@ -6,6 +6,7 @@ namespace MemoryCache.Interfaces.Services
     {
         ICacheable CreateCache(string key, ICacheable content);
         //ICacheable GetContent(string key, Func<ICacheable, string> item);
+        void RemoveOldCache(string key);
         void RemoveOldCache();
         ICacheable GetContent(string id, Func<string, ICacheable> p);
     }
